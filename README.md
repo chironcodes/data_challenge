@@ -277,3 +277,25 @@ with open('out.txt', 'w') as f:
         f.write(','.join(result) + '\n')
 
 ```
+
+
+# Coding challenge
+
+```python
+
+def re_sum(nums:list, target:int):
+    complement_dict = {}
+    
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in complement_dict and complement_dict[complement] != i:
+            return [complement_dict[complement], i]
+        complement_dict[num] = i
+    
+    return []
+
+>>re_sum([2,7,11,15],9)
+[0, 1]
+>>re_sum([3,2,3],6)
+[1, 2]
+```
